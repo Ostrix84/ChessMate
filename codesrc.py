@@ -52,10 +52,7 @@ class pion(piece):
     
 
 
-pion1=pion(1,0,1,0)
-pion1.print_coordonne()
-pion1.deplacement(2)
-pion1.print_coordonne()
+
 
 
 
