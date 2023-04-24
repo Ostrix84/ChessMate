@@ -1,5 +1,4 @@
-class chess:
-    def __init__(self,tab):
+
      
 
 
@@ -59,7 +58,7 @@ class tour(piece):
         if(dx!=0 and dy!=0):
             print('Erreur la tour ne se déplace que sur les cotés.')
         else:
-            if(super().deplacement(0,dy)):
+            if(super().deplacement(dx,dy)):
                 piece.set_y(self,piece.get_y(self)+dy)
                 piece.set_x(self,piece.get_x(self)+dx)
 
@@ -70,7 +69,7 @@ class fou(piece):
         if(abs(dx)!=abs(dy)):
             print('Erreur le fou se déplace uniquement en diagonale')
         else:
-            if(super().deplacement(0,dy)):
+            if(super().deplacement(dx,dy)):
                 piece.set_y(self,piece.get_y(self)+dy)
                 piece.set_x(self,piece.get_x(self)+dx)
 
@@ -80,7 +79,7 @@ class cavalier(piece):
 
     def deplacement(self,dx,dy):
         if((abs(dx)==2*abs(dy))or(abs(dy)==2*abs(dx))):
-            if(super().deplacement(0,dy)):
+            if(super().deplacement(dx,dy)):
                 piece.set_y(self,piece.get_y(self)+dy)
                 piece.set_x(self,piece.get_x(self)+dx)       
         else:
@@ -93,7 +92,7 @@ class roi(piece):
         if((abs(dx)>1)or(abs(dy)>1)):
             print('Le roi est plus lent que ça.')
         else:
-            if(super().deplacement(0,dy)):
+            if(super().deplacement(dx,dy)):
                 piece.set_y(self,piece.get_y(self)+dy)
                 piece.set_x(self,piece.get_x(self)+dx)
 
@@ -102,7 +101,7 @@ class dame(piece):
 
     def deplacement(self,dx,dy):
         if(((abs(dx)<2)and(dy==0))or((abs(dy)<2)and(dx==0))or(abs(dx)==abs(dy))):
-            if(super().deplacement(0,dy)):
+            if(super().deplacement(dx,dy)):
                 piece.set_y(self,piece.get_y(self)+dy)
                 piece.set_x(self,piece.get_x(self)+dx)
         else:
@@ -115,6 +114,8 @@ cavalier1=cavalier(0,1,0,0)
 fou1=fou(0,2,0,0)
 roi1=roi(0,4,0,0)
 dame1=dame(0,3,0,0)
+dame1.deplacement(1,1)
+dame1.print_coordonne()
 
 
 
