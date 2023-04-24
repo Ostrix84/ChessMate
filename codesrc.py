@@ -52,10 +52,6 @@ class pion(piece):
     
 
 
-
-
-
-
 class tour(piece):
 
     def deplacement(self,dx,dy):
