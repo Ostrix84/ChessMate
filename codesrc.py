@@ -36,14 +36,66 @@ class pion(piece):
         else:
             piece.set_y(self,piece.get_y(self)+dy)
             piece.set_nb_coup(self,piece.get_nb_coup(self)+1)
-    
 
-pion1=pion(1,0,1,0)
-pion1.print_coordonne()
-pion1.deplacement(2)
-pion1.print_coordonne()
-pion1.deplacement(2)
-pion1.print_coordonne()
+
+class tour(piece):
+
+    def deplacement(self,dx,dy):
+        if(dx!=0 and dy!=0):
+            print('Erreur la tour ne se déplace que sur les cotés.')
+        else:
+            piece.set_y(self,piece.get_y(self)+dy)
+            piece.set_x(self,piece.get_x(self)+dx)
+
+
+class fou(piece):
+
+    def deplacement(self,dx,dy):
+        if(abs(dx)!=abs(dy)):
+            print('Erreur le fou se déplace uniquement en diagonale')
+        else:
+            piece.set_y(self,piece.get_y(self)+dy)
+            piece.set_x(self,piece.get_x(self)+dx)
+
+
+
+class cavalier(piece):
+
+    def deplacement(self,dx,dy):
+        if((abs(dx)==2*abs(dy))or(abs(dy)==2*abs(dx))):
+            piece.set_y(self,piece.get_y(self)+dy)
+            piece.set_x(self,piece.get_x(self)+dx)       
+        else:
+            print('Erreur le cavalier ne se déplace pas comme ca.')
+
+
+class roi(piece):
+
+    def deplacement(self,dx,dy):
+        if((abs(dx)>1)or(abs(dy)>1)):
+            print('Le roi est plus lent que ça.')
+        else:
+            piece.set_y(self,piece.get_y(self)+dy)
+            piece.set_x(self,piece.get_x(self)+dx)
+
+
+class dame(piece):
+
+    def deplacement(self,dx,dy):
+        if(((abs(dx)<2)and(dy==0))or((abs(dy)<2)and(dx==0))or(abs(dx)==abs(dy))):
+            piece.set_y(self,piece.get_y(self)+dy)
+            piece.set_x(self,piece.get_x(self)+dx)
+        else:
+            print("La dame n'a pas tout les pouvoirs non plus")
+
+
+pion1=pion(0,0,1,0)
+tour1=tour(0,0,0,0)
+cavalier1=cavalier(0,1,0,0)
+fou1=fou(0,2,0,0)
+roi1=roi(0,4,0,0)
+dame1=dame(0,3,0,0)
+
 
 
 
