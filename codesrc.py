@@ -1,6 +1,6 @@
 class chess:
     def __init__(self,tab):
-        fjzilf
+     salut arthur   
 
 
 class piece:
