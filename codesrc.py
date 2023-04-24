@@ -1,6 +1,6 @@
 class chess:
     def __init__(self,tab):
-     salut arthur   
+     
 
 
 class piece:
@@ -59,8 +59,9 @@ class tour(piece):
         if(dx!=0 and dy!=0):
             print('Erreur la tour ne se déplace que sur les cotés.')
         else:
-            piece.set_y(self,piece.get_y(self)+dy)
-            piece.set_x(self,piece.get_x(self)+dx)
+            if(super().deplacement(0,dy)):
+                piece.set_y(self,piece.get_y(self)+dy)
+                piece.set_x(self,piece.get_x(self)+dx)
 
 
 class fou(piece):
@@ -69,8 +70,9 @@ class fou(piece):
         if(abs(dx)!=abs(dy)):
             print('Erreur le fou se déplace uniquement en diagonale')
         else:
-            piece.set_y(self,piece.get_y(self)+dy)
-            piece.set_x(self,piece.get_x(self)+dx)
+            if(super().deplacement(0,dy)):
+                piece.set_y(self,piece.get_y(self)+dy)
+                piece.set_x(self,piece.get_x(self)+dx)
 
 
 
@@ -78,8 +80,9 @@ class cavalier(piece):
 
     def deplacement(self,dx,dy):
         if((abs(dx)==2*abs(dy))or(abs(dy)==2*abs(dx))):
-            piece.set_y(self,piece.get_y(self)+dy)
-            piece.set_x(self,piece.get_x(self)+dx)       
+            if(super().deplacement(0,dy)):
+                piece.set_y(self,piece.get_y(self)+dy)
+                piece.set_x(self,piece.get_x(self)+dx)       
         else:
             print('Erreur le cavalier ne se déplace pas comme ca.')
 
@@ -90,16 +93,18 @@ class roi(piece):
         if((abs(dx)>1)or(abs(dy)>1)):
             print('Le roi est plus lent que ça.')
         else:
-            piece.set_y(self,piece.get_y(self)+dy)
-            piece.set_x(self,piece.get_x(self)+dx)
+            if(super().deplacement(0,dy)):
+                piece.set_y(self,piece.get_y(self)+dy)
+                piece.set_x(self,piece.get_x(self)+dx)
 
 
 class dame(piece):
 
     def deplacement(self,dx,dy):
         if(((abs(dx)<2)and(dy==0))or((abs(dy)<2)and(dx==0))or(abs(dx)==abs(dy))):
-            piece.set_y(self,piece.get_y(self)+dy)
-            piece.set_x(self,piece.get_x(self)+dx)
+            if(super().deplacement(0,dy)):
+                piece.set_y(self,piece.get_y(self)+dy)
+                piece.set_x(self,piece.get_x(self)+dx)
         else:
             print("La dame n'a pas tout les pouvoirs non plus")
 
